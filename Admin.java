@@ -8,8 +8,9 @@ public class Admin {
     void createBank(String BankName,Long amount){
         if(!banks.containsKey(BankName)){
             banks.put(BankName,new Bank(BankName,amount));
+        }else{
+            System.out.println("Bank Already Exists!");
         }
-        
     }
 
     HashMap<String,Bank> getBanks(){
@@ -19,6 +20,7 @@ public class Admin {
     void addCustomer(String AccountNumber,String HoldersName,Long amt,String BankName){
         banks.get(BankName).addCustomer(AccountNumber,HoldersName,amt);
     }
+
 
   
 }
