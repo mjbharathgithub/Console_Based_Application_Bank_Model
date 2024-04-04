@@ -20,12 +20,13 @@ class Customer {
     public void deposit(long amt){
         balance+=amt;
         System.out.println("Amount deposited Successfully!");
-        miniStateMent.add("Amount deposited");
+        miniStateMent.add("Amount deposited :"+amt+" Balance : "+balance);
     }
     public void withDraw(long amt){
         if(amt<=(balance-1000)){
+            balance-=amt;
             System.out.println("Collect Your amount : "+amt);
-
+            miniStateMent.add("Amount withdrawal :"+amt+" Balance : "+balance);
         }
         else{
             System.out.println("Insufficient Balance");
@@ -39,12 +40,19 @@ class Customer {
             else {
                 pin = newPin;
                 System.out.println("Pin changed Successfully");
+                miniStateMent.add("Pin changed Successfully");
             }
         }
     }
     public boolean validate(int npin){
         if(npin == pin) return true;
         else return false;
+    }
+    public void miniState(){
+        int count =0;
+        for(String s:miniStateMent){
+            System.out.println(++count+" "+s);
+        }
     }
 
 
