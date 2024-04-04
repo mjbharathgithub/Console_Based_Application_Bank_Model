@@ -13,12 +13,30 @@ public class Admin {
         }
     }
 
+    void deleteBank(String BankName){
+        if(banks.containsKey(BankName)){
+            banks.get(BankName).delete();
+            banks.remove(BankName);
+        }else{
+            System.out.println("Bank Does not Exists!");
+        }
+    }
+
     HashMap<String,Bank> getBanks(){
         return banks;
     }
 
     void addCustomer(String AccountNumber,String HoldersName,Long amt,String BankName){
         banks.get(BankName).addCustomer(AccountNumber,HoldersName,amt);
+    }
+
+    void deleteCustomer(String AccountNumber,String BankName){
+        if(banks.containsKey(BankName)){
+            banks.get(BankName).deleteCustomer(AccountNumber);
+            
+        }else{
+            System.out.println(" Bank Does not Exists!");
+        }
     }
 
 
